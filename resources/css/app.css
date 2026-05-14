@@ -1,0 +1,179 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+    html {
+        font-family: 'Telex', sans-serif;
+    }
+}
+
+body {
+    font-family: 'Telex', sans-serif;
+    font-size: 14px;
+    @apply text-gray-700 bg-slate-50;
+}
+
+/* Force regular weight on all elements */
+* {
+    font-weight: 400 !important;
+    text-transform: none !important;
+    font-style: normal !important;
+}
+
+/* Ensure typically bold elements are regular */
+h1, h2, h3, h4, h5, h6, b, strong, th, td, button, .font-medium, .font-semibold, .font-bold {
+    font-weight: 400 !important;
+}
+
+/* Keep icons visible - Font Awesome usually needs specific weights, 
+   but we'll try to keep them as thin as possible if they are solid */
+.fas, .fab, .fa-solid, .fa-brands {
+    font-weight: 900 !important;
+}
+.far, .fa-regular {
+    font-weight: 400 !important;
+}
+
+/* Custom scrollbar for sidebar */
+.custom-scrollbar::-webkit-scrollbar {
+    width: 4px;
+}
+.custom-scrollbar::-webkit-scrollbar-track {
+    background: transparent;
+}
+.custom-scrollbar::-webkit-scrollbar-thumb {
+    background: #e2e8f0;
+    border-radius: 10px;
+}
+.custom-scrollbar::-webkit-scrollbar-thumb:hover {
+    background: #cbd5e1;
+}
+
+/* Hide scrollbar completely but allow scrolling */
+.hide-scrollbar::-webkit-scrollbar {
+    display: none;
+}
+.hide-scrollbar {
+    -ms-overflow-style: none;  /* IE and Edge */
+    scrollbar-width: none;  /* Firefox */
+}
+
+/* ============================
+   Mobile Responsive Utilities
+   ============================ */
+
+/* Sidebar Overlay Backdrop */
+.sidebar-backdrop {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(15, 23, 42, 0.5);
+    backdrop-filter: blur(2px);
+    z-index: 29;
+    animation: fadeInBackdrop 0.2s ease;
+}
+.sidebar-backdrop.active {
+    display: block;
+}
+
+@keyframes fadeInBackdrop {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+/* Mobile sidebar slide-in */
+@media (max-width: 768px) {
+    .admin-sidebar {
+        position: fixed !important;
+        left: -280px;
+        top: 0;
+        bottom: 0;
+        z-index: 30 !important;
+        width: 260px !important;
+        min-width: 260px !important;
+        transition: left 0.25s cubic-bezier(0.4, 0, 0.2, 1) !important;
+        box-shadow: 4px 0 24px rgba(0,0,0,0.12);
+    }
+    .admin-sidebar.sidebar-open {
+        left: 0;
+    }
+    .admin-main-content {
+        margin-left: 0 !important;
+        width: 100% !important;
+    }
+    .admin-header {
+        padding: 0 16px !important;
+    }
+    .admin-content-area {
+        padding: 16px !important;
+    }
+}
+
+/* Responsive table wrapper */
+.table-responsive {
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+}
+
+/* Responsive card grid */
+@media (max-width: 640px) {
+    .responsive-grid-2 {
+        grid-template-columns: 1fr 1fr !important;
+    }
+    .responsive-grid-1 {
+        grid-template-columns: 1fr !important;
+    }
+}
+
+/* Mobile form adjustments */
+@media (max-width: 640px) {
+    .form-row-mobile {
+        flex-direction: column !important;
+    }
+    .form-actions-mobile {
+        flex-direction: column !important;
+        gap: 8px !important;
+    }
+    .form-actions-mobile button,
+    .form-actions-mobile a {
+        width: 100% !important;
+        justify-content: center !important;
+    }
+}
+
+/* Mobile-friendly stat cards */
+@media (max-width: 480px) {
+    .stat-cards-grid {
+        grid-template-columns: 1fr 1fr !important;
+        gap: 12px !important;
+    }
+}
+
+/* Kanban mobile horizontal scroll */
+@media (max-width: 768px) {
+    .kanban-board {
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+        padding-bottom: 16px;
+    }
+    .kanban-columns {
+        min-width: max-content;
+        display: flex !important;
+        gap: 12px !important;
+    }
+    .kanban-column {
+        min-width: 260px !important;
+        max-width: 280px !important;
+    }
+}
+
+/* Hide text labels on very small screens in header */
+@media (max-width: 480px) {
+    .header-btn-label {
+        display: none;
+    }
+    .header-user-name {
+        display: none;
+    }
+}
