@@ -70,7 +70,7 @@ export default function AduanTracking() {
     return (
         <>
             <Head title="Lacak Pengaduan - SIM Aduan" />
-            
+
             <style>
                 {`
                     .tracking-outer {
@@ -276,14 +276,14 @@ export default function AduanTracking() {
 
                         {/* Right: Buttons */}
                         <div className="nav-right">
-                            <Link 
-                                href="/login" 
-                                style={{ 
-                                    padding: '8px 16px', 
-                                    border: '1px solid #E2E8F0', 
-                                    color: '#475569', 
-                                    textDecoration: 'none', 
-                                    fontSize: '15px', 
+                            <Link
+                                href="/login"
+                                style={{
+                                    padding: '8px 16px',
+                                    border: '1px solid #E2E8F0',
+                                    color: '#475569',
+                                    textDecoration: 'none',
+                                    fontSize: '15px',
                                     transition: 'all 0.2s',
                                     display: 'flex',
                                     alignItems: 'center',
@@ -303,14 +303,14 @@ export default function AduanTracking() {
                                 <i className="fa-solid fa-right-to-bracket"></i>
                                 Masuk
                             </Link>
-                            <Link 
-                                href="/register" 
-                                style={{ 
-                                    padding: '8px 16px', 
-                                    background: '#2563EB', 
-                                    color: '#fff', 
-                                    textDecoration: 'none', 
-                                    fontSize: '15px', 
+                            <Link
+                                href="/register"
+                                style={{
+                                    padding: '8px 16px',
+                                    background: '#2563EB',
+                                    color: '#fff',
+                                    textDecoration: 'none',
+                                    fontSize: '15px',
                                     transition: 'all 0.2s',
                                     display: 'flex',
                                     alignItems: 'center',
@@ -334,8 +334,8 @@ export default function AduanTracking() {
                         </div>
 
                         {/* Hamburger Button */}
-                        <button 
-                            className="nav-hamburger" 
+                        <button
+                            className="nav-hamburger"
                             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
                             aria-label="Toggle Navigation Menu"
                         >
@@ -379,14 +379,14 @@ export default function AduanTracking() {
                             </Link>
                             <hr style={{ border: 0, borderTop: '1px solid #F1F5F9', margin: '4px 0' }} />
                             <div style={{ display: 'flex', flexDirection: 'column', gap: '10px' }}>
-                                <Link 
-                                    href="/login" 
-                                    style={{ 
-                                        padding: '10px', 
-                                        border: '1px solid #E2E8F0', 
-                                        color: '#475569', 
-                                        textDecoration: 'none', 
-                                        fontSize: '15px', 
+                                <Link
+                                    href="/login"
+                                    style={{
+                                        padding: '10px',
+                                        border: '1px solid #E2E8F0',
+                                        color: '#475569',
+                                        textDecoration: 'none',
+                                        fontSize: '15px',
                                         textAlign: 'center',
                                         fontFamily: "'Telex', sans-serif",
                                         display: 'flex',
@@ -399,14 +399,14 @@ export default function AduanTracking() {
                                     <i className="fa-solid fa-right-to-bracket"></i>
                                     Masuk
                                 </Link>
-                                <Link 
-                                    href="/register" 
-                                    style={{ 
-                                        padding: '10px', 
-                                        background: '#2563EB', 
-                                        color: '#fff', 
-                                        textDecoration: 'none', 
-                                        fontSize: '15px', 
+                                <Link
+                                    href="/register"
+                                    style={{
+                                        padding: '10px',
+                                        background: '#2563EB',
+                                        color: '#fff',
+                                        textDecoration: 'none',
+                                        fontSize: '15px',
                                         textAlign: 'center',
                                         fontFamily: "'Telex', sans-serif",
                                         display: 'flex',
@@ -428,12 +428,12 @@ export default function AduanTracking() {
                 {/* Main Content Area */}
                 <section className="tracking-outer">
                     <div className="tracking-container">
-                        
+
                         {/* Search Input Card */}
                         <div className="t-card">
                             <h2 className="t-title">Lacak Pengaduan IT</h2>
                             <p className="t-subtitle">Lacak status penyelesaian keluhan Anda secara langsung dengan nomor tiket, nomor WhatsApp, atau nama pelapor.</p>
-                            
+
                             <form onSubmit={handleTrackingSearch} className="t-input-group">
                                 <div className="t-input-wrapper">
                                     <i className="fa-solid fa-magnifying-glass" style={{
@@ -444,7 +444,7 @@ export default function AduanTracking() {
                                         color: '#94A3B8',
                                         fontSize: '16px',
                                     }}></i>
-                                    <input 
+                                    <input
                                         type="text"
                                         placeholder="Contoh: ADU-001, 081234567, atau Bambang..."
                                         value={searchQuery}
@@ -509,13 +509,13 @@ export default function AduanTracking() {
                                     return (
                                         <div key={aduan.id} className="t-card" style={{ padding: '24px', display: 'flex', flexDirection: 'column', gap: '16px' }}>
                                             <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', flexWrap: 'wrap', gap: '12px' }}>
-                                                 <div>
+                                                <div>
                                                     <span style={{ fontSize: '18px', fontWeight: 'bold', color: '#0F172A', display: 'block' }}>{aduan.ticket_number}</span>
                                                     <span style={{ fontSize: '14px', color: '#64748B' }}>Kategori: <strong>{aduan.category}</strong></span>
-                                                 </div>
-                                                 <span className="status-badge" style={{ color: statusColor, backgroundColor: statusBg, border: `1px solid ${statusColor}22` }}>
-                                                     <i className={statusIcon}></i> {statusText}
-                                                 </span>
+                                                </div>
+                                                <span className="status-badge" style={{ color: statusColor, backgroundColor: statusBg, border: `1px solid ${statusColor}22` }}>
+                                                    <i className={statusIcon}></i> {statusText}
+                                                </span>
                                             </div>
 
                                             <div style={{ borderTop: '1px solid #F1F5F9', borderBottom: '1px solid #F1F5F9', padding: '16px 0', display: 'flex', flexDirection: 'column', gap: '12px' }}>
@@ -645,8 +645,8 @@ export default function AduanTracking() {
                                     display: 'flex', alignItems: 'center', justifyContent: 'center', color: '#F1F5F9',
                                     textDecoration: 'none', transition: 'all 0.2s'
                                 }}
-                                onMouseEnter={e => { e.currentTarget.style.background = '#2563EB'; e.currentTarget.style.transform = 'translateY(-2px)'; }}
-                                onMouseLeave={e => { e.currentTarget.style.background = '#1E293B'; e.currentTarget.style.transform = 'none'; }}>
+                                    onMouseEnter={e => { e.currentTarget.style.background = '#2563EB'; e.currentTarget.style.transform = 'translateY(-2px)'; }}
+                                    onMouseLeave={e => { e.currentTarget.style.background = '#1E293B'; e.currentTarget.style.transform = 'none'; }}>
                                     <i className="fa-solid fa-globe" style={{ fontSize: '14px', margin: 'auto' }}></i>
                                 </a>
                                 <a href="tel:0358321818" style={{
@@ -654,8 +654,8 @@ export default function AduanTracking() {
                                     display: 'flex', alignItems: 'center', justifyContent: 'center', color: '#F1F5F9',
                                     textDecoration: 'none', transition: 'all 0.2s'
                                 }}
-                                onMouseEnter={e => { e.currentTarget.style.background = '#10B981'; e.currentTarget.style.transform = 'translateY(-2px)'; }}
-                                onMouseLeave={e => { e.currentTarget.style.background = '#1E293B'; e.currentTarget.style.transform = 'none'; }}>
+                                    onMouseEnter={e => { e.currentTarget.style.background = '#10B981'; e.currentTarget.style.transform = 'translateY(-2px)'; }}
+                                    onMouseLeave={e => { e.currentTarget.style.background = '#1E293B'; e.currentTarget.style.transform = 'none'; }}>
                                     <i className="fa-solid fa-phone" style={{ fontSize: '14px', margin: 'auto' }}></i>
                                 </a>
                                 <a href="mailto:it.rsudnganjuk@gmail.com" style={{
@@ -663,8 +663,8 @@ export default function AduanTracking() {
                                     display: 'flex', alignItems: 'center', justifyContent: 'center', color: '#F1F5F9',
                                     textDecoration: 'none', transition: 'all 0.2s'
                                 }}
-                                onMouseEnter={e => { e.currentTarget.style.background = '#EF4444'; e.currentTarget.style.transform = 'translateY(-2px)'; }}
-                                onMouseLeave={e => { e.currentTarget.style.background = '#1E293B'; e.currentTarget.style.transform = 'none'; }}>
+                                    onMouseEnter={e => { e.currentTarget.style.background = '#EF4444'; e.currentTarget.style.transform = 'translateY(-2px)'; }}
+                                    onMouseLeave={e => { e.currentTarget.style.background = '#1E293B'; e.currentTarget.style.transform = 'none'; }}>
                                     <i className="fa-solid fa-envelope" style={{ fontSize: '14px', margin: 'auto' }}></i>
                                 </a>
                             </div>
@@ -676,29 +676,29 @@ export default function AduanTracking() {
                             <ul style={{ listStyle: 'none', padding: 0, margin: 0, display: 'flex', flexDirection: 'column', gap: '12px' }}>
                                 <li>
                                     <Link href="/" style={{ fontSize: '13px', color: '#94A3B8', textDecoration: 'none', transition: 'color 0.15s' }}
-                                    onMouseEnter={e => e.currentTarget.style.color = '#3B82F6'}
-                                    onMouseLeave={e => e.currentTarget.style.color = '#94A3B8'}>
+                                        onMouseEnter={e => e.currentTarget.style.color = '#3B82F6'}
+                                        onMouseLeave={e => e.currentTarget.style.color = '#94A3B8'}>
                                         <i className="fa-solid fa-chevron-right" style={{ fontSize: '10px', marginRight: '8px' }}></i>Beranda Utama
                                     </Link>
                                 </li>
                                 <li>
                                     <Link href="/buat-aduan" style={{ fontSize: '13px', color: '#94A3B8', textDecoration: 'none', transition: 'color 0.15s' }}
-                                    onMouseEnter={e => e.currentTarget.style.color = '#3B82F6'}
-                                    onMouseLeave={e => e.currentTarget.style.color = '#94A3B8'}>
+                                        onMouseEnter={e => e.currentTarget.style.color = '#3B82F6'}
+                                        onMouseLeave={e => e.currentTarget.style.color = '#94A3B8'}>
                                         <i className="fa-solid fa-chevron-right" style={{ fontSize: '10px', marginRight: '8px' }}></i>Form Pengaduan
                                     </Link>
                                 </li>
                                 <li>
                                     <Link href="/lacak-aduan" style={{ fontSize: '13px', color: '#94A3B8', textDecoration: 'none', transition: 'color 0.15s' }}
-                                    onMouseEnter={e => e.currentTarget.style.color = '#3B82F6'}
-                                    onMouseLeave={e => e.currentTarget.style.color = '#94A3B8'}>
+                                        onMouseEnter={e => e.currentTarget.style.color = '#3B82F6'}
+                                        onMouseLeave={e => e.currentTarget.style.color = '#94A3B8'}>
                                         <i className="fa-solid fa-chevron-right" style={{ fontSize: '10px', marginRight: '8px' }}></i>Tracking Aduan
                                     </Link>
                                 </li>
                                 <li>
                                     <Link href="/login" style={{ fontSize: '13px', color: '#94A3B8', textDecoration: 'none', transition: 'color 0.15s' }}
-                                    onMouseEnter={e => e.currentTarget.style.color = '#3B82F6'}
-                                    onMouseLeave={e => e.currentTarget.style.color = '#94A3B8'}>
+                                        onMouseEnter={e => e.currentTarget.style.color = '#3B82F6'}
+                                        onMouseLeave={e => e.currentTarget.style.color = '#94A3B8'}>
                                         <i className="fa-solid fa-chevron-right" style={{ fontSize: '10px', marginRight: '8px' }}></i>Portal Admin & Teknisi
                                     </Link>
                                 </li>

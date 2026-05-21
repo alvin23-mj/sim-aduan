@@ -213,7 +213,6 @@ export default function SpkReport({ aduan, technicians = [] }) {
                     }
                     .signature-name {
                         font-weight: bold;
-                        text-decoration: underline;
                     }
                 `}
             </style>

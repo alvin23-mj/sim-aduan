@@ -45,7 +45,7 @@ export default function AduanForm({ categories = [] }) {
     return (
         <>
             <Head title="Buat Aduan Baru - SIM Aduan" />
-            
+
             <style>
                 {`
                     /* Google Form Styling System */
@@ -307,14 +307,14 @@ export default function AduanForm({ categories = [] }) {
 
                         {/* Right: Buttons */}
                         <div className="nav-right">
-                            <Link 
-                                href="/login" 
-                                style={{ 
-                                    padding: '8px 16px', 
-                                    border: '1px solid #E2E8F0', 
-                                    color: '#475569', 
-                                    textDecoration: 'none', 
-                                    fontSize: '15px', 
+                            <Link
+                                href="/login"
+                                style={{
+                                    padding: '8px 16px',
+                                    border: '1px solid #E2E8F0',
+                                    color: '#475569',
+                                    textDecoration: 'none',
+                                    fontSize: '15px',
                                     transition: 'all 0.2s',
                                     display: 'flex',
                                     alignItems: 'center',
@@ -334,14 +334,14 @@ export default function AduanForm({ categories = [] }) {
                                 <i className="fa-solid fa-right-to-bracket"></i>
                                 Masuk
                             </Link>
-                            <Link 
-                                href="/register" 
-                                style={{ 
-                                    padding: '8px 16px', 
-                                    background: '#2563EB', 
-                                    color: '#fff', 
-                                    textDecoration: 'none', 
-                                    fontSize: '15px', 
+                            <Link
+                                href="/register"
+                                style={{
+                                    padding: '8px 16px',
+                                    background: '#2563EB',
+                                    color: '#fff',
+                                    textDecoration: 'none',
+                                    fontSize: '15px',
                                     transition: 'all 0.2s',
                                     display: 'flex',
                                     alignItems: 'center',
@@ -365,8 +365,8 @@ export default function AduanForm({ categories = [] }) {
                         </div>
 
                         {/* Hamburger Button */}
-                        <button 
-                            className="nav-hamburger" 
+                        <button
+                            className="nav-hamburger"
                             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
                             aria-label="Toggle Navigation Menu"
                         >
@@ -410,14 +410,14 @@ export default function AduanForm({ categories = [] }) {
                             </Link>
                             <hr style={{ border: 0, borderTop: '1px solid #F1F5F9', margin: '4px 0' }} />
                             <div style={{ display: 'flex', flexDirection: 'column', gap: '10px' }}>
-                                <Link 
-                                    href="/login" 
-                                    style={{ 
-                                        padding: '10px', 
-                                        border: '1px solid #E2E8F0', 
-                                        color: '#475569', 
-                                        textDecoration: 'none', 
-                                        fontSize: '15px', 
+                                <Link
+                                    href="/login"
+                                    style={{
+                                        padding: '10px',
+                                        border: '1px solid #E2E8F0',
+                                        color: '#475569',
+                                        textDecoration: 'none',
+                                        fontSize: '15px',
                                         textAlign: 'center',
                                         fontFamily: "'Telex', sans-serif",
                                         display: 'flex',
@@ -430,14 +430,14 @@ export default function AduanForm({ categories = [] }) {
                                     <i className="fa-solid fa-right-to-bracket"></i>
                                     Masuk
                                 </Link>
-                                <Link 
-                                    href="/register" 
-                                    style={{ 
-                                        padding: '10px', 
-                                        background: '#2563EB', 
-                                        color: '#fff', 
-                                        textDecoration: 'none', 
-                                        fontSize: '15px', 
+                                <Link
+                                    href="/register"
+                                    style={{
+                                        padding: '10px',
+                                        background: '#2563EB',
+                                        color: '#fff',
+                                        textDecoration: 'none',
+                                        fontSize: '15px',
                                         textAlign: 'center',
                                         fontFamily: "'Telex', sans-serif",
                                         display: 'flex',
@@ -460,7 +460,7 @@ export default function AduanForm({ categories = [] }) {
                 <section className="form-outer">
                     <div className="g-container">
                         <form onSubmit={handleSubmit}>
-                            
+
                             {/* CARD 1: Header / Title Card */}
                             <div className="g-card">
                                 <h1 className="g-title">Form Pengaduan SIM Aduan</h1>
@@ -478,11 +478,11 @@ export default function AduanForm({ categories = [] }) {
                                     Nama Lengkap <span className="g-required-indicator">*</span>
                                 </label>
                                 <div className="g-input-wrapper">
-                                    <input 
-                                        type="text" 
-                                        value={data.name} 
-                                        onChange={e => setData('name', e.target.value)} 
-                                        placeholder="Jawaban Anda" 
+                                    <input
+                                        type="text"
+                                        value={data.name}
+                                        onChange={e => setData('name', e.target.value)}
+                                        placeholder="Jawaban Anda"
                                         className="g-input-field"
                                         required
                                     />
@@ -500,11 +500,11 @@ export default function AduanForm({ categories = [] }) {
                                     Unit / Ruangan Kerja <span className="g-required-indicator">*</span>
                                 </label>
                                 <div className="g-input-wrapper">
-                                    <input 
-                                        type="text" 
-                                        value={data.unit} 
-                                        onChange={e => setData('unit', e.target.value)} 
-                                        placeholder="Jawaban Anda" 
+                                    <input
+                                        type="text"
+                                        value={data.unit}
+                                        onChange={e => setData('unit', e.target.value)}
+                                        placeholder="Jawaban Anda"
                                         className="g-input-field"
                                         required
                                     />
@@ -522,11 +522,11 @@ export default function AduanForm({ categories = [] }) {
                                     Nomor WhatsApp <span className="g-required-indicator">*</span>
                                 </label>
                                 <div className="g-input-wrapper">
-                                    <input 
-                                        type="text" 
-                                        value={data.email} 
-                                        onChange={e => setData('email', e.target.value)} 
-                                        placeholder="Jawaban Anda (Contoh: 08123456789)" 
+                                    <input
+                                        type="text"
+                                        value={data.email}
+                                        onChange={e => setData('email', e.target.value)}
+                                        placeholder="Jawaban Anda (Contoh: 08123456789)"
                                         className="g-input-field"
                                         required
                                     />
@@ -543,19 +543,19 @@ export default function AduanForm({ categories = [] }) {
                                 <label className="g-question-title">
                                     Kategori Kerusakan <span className="g-required-indicator">*</span>
                                 </label>
-                                    <select 
-                                        value={data.category} 
-                                        onChange={e => setData('category', e.target.value)} 
-                                        className="g-select-field"
-                                        required
-                                    >
-                                        <option value="">Pilih Kategori</option>
-                                        {categories.map((cat) => (
-                                            <option key={cat.id} value={cat.name}>
-                                                {cat.name}
-                                            </option>
-                                        ))}
-                                    </select>
+                                <select
+                                    value={data.category}
+                                    onChange={e => setData('category', e.target.value)}
+                                    className="g-select-field"
+                                    required
+                                >
+                                    <option value="">Pilih Kategori</option>
+                                    {categories.map((cat) => (
+                                        <option key={cat.id} value={cat.name}>
+                                            {cat.name}
+                                        </option>
+                                    ))}
+                                </select>
                                 {errors.category && (
                                     <div style={errorStyle}>
                                         <i className="fa-solid fa-circle-exclamation"></i> {errors.category}
@@ -594,9 +594,9 @@ export default function AduanForm({ categories = [] }) {
                                     Bubuhkan tanda tangan Anda pada area di bawah ini sebagai bukti validitas laporan.
                                 </p>
                                 <div style={{ border: '1px solid #dadce0', borderRadius: '4px', overflow: 'hidden' }}>
-                                    <SignaturePad 
-                                        onSave={(val) => setData('signature', val)} 
-                                        onClear={() => setData('signature', '')} 
+                                    <SignaturePad
+                                        onSave={(val) => setData('signature', val)}
+                                        onClear={() => setData('signature', '')}
                                     />
                                 </div>
                                 {errors.signature && (
@@ -615,7 +615,7 @@ export default function AduanForm({ categories = [] }) {
                                 >
                                     {processing ? 'Mengirim...' : 'Kirim'}
                                 </button>
-                                
+
                                 <button
                                     type="button"
                                     onClick={() => {
@@ -681,8 +681,8 @@ export default function AduanForm({ categories = [] }) {
                                     display: 'flex', alignItems: 'center', justifyContent: 'center', color: '#F1F5F9',
                                     textDecoration: 'none', transition: 'all 0.2s'
                                 }}
-                                onMouseEnter={e => { e.currentTarget.style.background = '#2563EB'; e.currentTarget.style.transform = 'translateY(-2px)'; }}
-                                onMouseLeave={e => { e.currentTarget.style.background = '#1E293B'; e.currentTarget.style.transform = 'none'; }}>
+                                    onMouseEnter={e => { e.currentTarget.style.background = '#2563EB'; e.currentTarget.style.transform = 'translateY(-2px)'; }}
+                                    onMouseLeave={e => { e.currentTarget.style.background = '#1E293B'; e.currentTarget.style.transform = 'none'; }}>
                                     <i className="fa-solid fa-globe" style={{ fontSize: '14px', margin: 'auto' }}></i>
                                 </a>
                                 <a href="tel:0358321818" style={{
@@ -690,8 +690,8 @@ export default function AduanForm({ categories = [] }) {
                                     display: 'flex', alignItems: 'center', justifyContent: 'center', color: '#F1F5F9',
                                     textDecoration: 'none', transition: 'all 0.2s'
                                 }}
-                                onMouseEnter={e => { e.currentTarget.style.background = '#10B981'; e.currentTarget.style.transform = 'translateY(-2px)'; }}
-                                onMouseLeave={e => { e.currentTarget.style.background = '#1E293B'; e.currentTarget.style.transform = 'none'; }}>
+                                    onMouseEnter={e => { e.currentTarget.style.background = '#10B981'; e.currentTarget.style.transform = 'translateY(-2px)'; }}
+                                    onMouseLeave={e => { e.currentTarget.style.background = '#1E293B'; e.currentTarget.style.transform = 'none'; }}>
                                     <i className="fa-solid fa-phone" style={{ fontSize: '14px', margin: 'auto' }}></i>
                                 </a>
                                 <a href="mailto:it.rsudnganjuk@gmail.com" style={{
@@ -699,8 +699,8 @@ export default function AduanForm({ categories = [] }) {
                                     display: 'flex', alignItems: 'center', justifyContent: 'center', color: '#F1F5F9',
                                     textDecoration: 'none', transition: 'all 0.2s'
                                 }}
-                                onMouseEnter={e => { e.currentTarget.style.background = '#EF4444'; e.currentTarget.style.transform = 'translateY(-2px)'; }}
-                                onMouseLeave={e => { e.currentTarget.style.background = '#1E293B'; e.currentTarget.style.transform = 'none'; }}>
+                                    onMouseEnter={e => { e.currentTarget.style.background = '#EF4444'; e.currentTarget.style.transform = 'translateY(-2px)'; }}
+                                    onMouseLeave={e => { e.currentTarget.style.background = '#1E293B'; e.currentTarget.style.transform = 'none'; }}>
                                     <i className="fa-solid fa-envelope" style={{ fontSize: '14px', margin: 'auto' }}></i>
                                 </a>
                             </div>
@@ -712,29 +712,29 @@ export default function AduanForm({ categories = [] }) {
                             <ul style={{ listStyle: 'none', padding: 0, margin: 0, display: 'flex', flexDirection: 'column', gap: '12px' }}>
                                 <li>
                                     <Link href="/" style={{ fontSize: '13px', color: '#94A3B8', textDecoration: 'none', transition: 'color 0.15s' }}
-                                    onMouseEnter={e => e.currentTarget.style.color = '#3B82F6'}
-                                    onMouseLeave={e => e.currentTarget.style.color = '#94A3B8'}>
+                                        onMouseEnter={e => e.currentTarget.style.color = '#3B82F6'}
+                                        onMouseLeave={e => e.currentTarget.style.color = '#94A3B8'}>
                                         <i className="fa-solid fa-chevron-right" style={{ fontSize: '10px', marginRight: '8px' }}></i>Beranda Utama
                                     </Link>
                                 </li>
                                 <li>
                                     <Link href="/buat-aduan" style={{ fontSize: '13px', color: '#94A3B8', textDecoration: 'none', transition: 'color 0.15s' }}
-                                    onMouseEnter={e => e.currentTarget.style.color = '#3B82F6'}
-                                    onMouseLeave={e => e.currentTarget.style.color = '#94A3B8'}>
+                                        onMouseEnter={e => e.currentTarget.style.color = '#3B82F6'}
+                                        onMouseLeave={e => e.currentTarget.style.color = '#94A3B8'}>
                                         <i className="fa-solid fa-chevron-right" style={{ fontSize: '10px', marginRight: '8px' }}></i>Form Pengaduan
                                     </Link>
                                 </li>
                                 <li>
                                     <Link href="/lacak-aduan" style={{ fontSize: '13px', color: '#94A3B8', textDecoration: 'none', transition: 'color 0.15s' }}
-                                    onMouseEnter={e => e.currentTarget.style.color = '#3B82F6'}
-                                    onMouseLeave={e => e.currentTarget.style.color = '#94A3B8'}>
+                                        onMouseEnter={e => e.currentTarget.style.color = '#3B82F6'}
+                                        onMouseLeave={e => e.currentTarget.style.color = '#94A3B8'}>
                                         <i className="fa-solid fa-chevron-right" style={{ fontSize: '10px', marginRight: '8px' }}></i>Tracking Aduan
                                     </Link>
                                 </li>
                                 <li>
                                     <Link href="/login" style={{ fontSize: '13px', color: '#94A3B8', textDecoration: 'none', transition: 'color 0.15s' }}
-                                    onMouseEnter={e => e.currentTarget.style.color = '#3B82F6'}
-                                    onMouseLeave={e => e.currentTarget.style.color = '#94A3B8'}>
+                                        onMouseEnter={e => e.currentTarget.style.color = '#3B82F6'}
+                                        onMouseLeave={e => e.currentTarget.style.color = '#94A3B8'}>
                                         <i className="fa-solid fa-chevron-right" style={{ fontSize: '10px', marginRight: '8px' }}></i>Portal Admin & Teknisi
                                     </Link>
                                 </li>

@@ -184,8 +184,7 @@ export default function Riwayat({ aduans = [], filters = {} }) {
                                             </td>
                                             <td style={{ padding: '14px 16px', color: '#334155' }}>
                                                 {aduan.technician ? (
-                                                    <span style={{ display: 'flex', alignItems: 'center', gap: '6px' }}>
-                                                        <i className="fa-solid fa-user-gear" style={{ fontSize: '14px', color: '#64748B' }}></i>
+                                                    <span>
                                                         {aduan.technician}
                                                     </span>
                                                 ) : (
