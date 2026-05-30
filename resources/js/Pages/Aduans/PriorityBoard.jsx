@@ -16,7 +16,10 @@ export default function PriorityBoard({ aduans }) {
         return () => clearInterval(timer);
     }, []);
 
-    const formatDuration = (startedAt) => {
+    const formatDuration = (startedAt, aduan) => {
+        if (aduan && aduan.frozen_minutes !== null && aduan.frozen_minutes !== undefined) {
+            return `${aduan.frozen_minutes}m`;
+        }
         if (!startedAt) return '-';
         const start = new Date(startedAt);
         const diff = Math.floor((currentTime - start) / 1000); // in seconds
@@ -29,6 +32,7 @@ export default function PriorityBoard({ aduans }) {
     };
 
     const isOverdue = (aduan) => {
+        if (aduan.priority_reason) return false;
         if (!aduan.started_working_at) return false;
         const start = new Date(aduan.started_working_at);
         const minutes = (currentTime - start) / 60000;
@@ -122,7 +126,7 @@ export default function PriorityBoard({ aduans }) {
                                                 gap: '4px'
                                             }}>
                                                 {overdue && <i className="fa-solid fa-triangle-exclamation"></i>}
-                                                {formatDuration(aduan.started_working_at)}
+                                                {formatDuration(aduan.started_working_at, aduan)}
                                             </div>
                                         </div>
 
@@ -158,6 +162,24 @@ export default function PriorityBoard({ aduans }) {
                                                     Overdue
                                                 </span>
                                             )}
+                                            {aduan.priority_reason && (
+                                                <span style={{ 
+                                                    fontSize: '14px', 
+                                                    padding: '3px 10px', 
+                                                    borderRadius: '4px', 
+                                                    background: '#F0FDF4', 
+                                                    color: '#166534', 
+                                                    fontWeight: '400',
+                                                    display: 'inline-block',
+                                                    maxWidth: '220px',
+                                                    whiteSpace: 'nowrap',
+                                                    overflow: 'hidden',
+                                                    textOverflow: 'ellipsis'
+                                                }}
+                                                title={`Alasan: ${aduan.priority_reason}`}>
+                                                    Alasan: {aduan.priority_reason}
+                                                </span>
+                                            )}
                                         </div>
 
                                         <div style={{ borderTop: '1px solid #F1F5F9', margin: '14px 0 16px' }}></div>
@@ -173,9 +195,19 @@ export default function PriorityBoard({ aduans }) {
                                                     <button 
                                                         onClick={(e) => {
                                                             e.stopPropagation();
+                                                            let reason = '';
+                                                            if (aduan.priority === 'sedang') {
+                                                                reason = prompt('Masukkan alasan memindahkan kembali ke prioritas Ringan (agar tidak dianggap Overdue):');
+                                                                if (reason === null) return; // User cancelled
+                                                                if (!reason.trim()) {
+                                                                    alert('Alasan harus diisi!');
+                                                                    return;
+                                                                }
+                                                            }
                                                             router.patch(`/aduan/${aduan.id}`, { 
                                                                 priority: aduan.priority === 'berat' ? 'sedang' : 'ringan',
-                                                                is_manual_priority: true 
+                                                                is_manual_priority: true,
+                                                                priority_reason: reason || null
                                                             });
                                                         }}
                                                         className="btn-action-hover"

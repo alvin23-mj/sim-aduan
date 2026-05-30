@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { Head, Link } from '@inertiajs/react';
+import Footer from '../Components/Footer';
 
 const baseStyle = {
     fontFamily: "'Telex', sans-serif",
@@ -429,7 +430,6 @@ export default function Welcome({ categories = [] }) {
                                 onMouseEnter={e => e.currentTarget.style.color = '#2563EB'}
                                 onMouseLeave={e => e.currentTarget.style.color = '#475569'}
                             >
-                                <i className="fa-solid fa-pen-to-square"></i>
                                 Form Pengaduan
                             </Link>
                             <Link
@@ -448,7 +448,6 @@ export default function Welcome({ categories = [] }) {
                                 onMouseEnter={e => e.currentTarget.style.color = '#2563EB'}
                                 onMouseLeave={e => e.currentTarget.style.color = '#475569'}
                             >
-                                <i className="fa-solid fa-magnifying-glass"></i>
                                 Tracking Aduan
                             </Link>
                         </div>
@@ -479,7 +478,6 @@ export default function Welcome({ categories = [] }) {
                                     e.currentTarget.style.borderColor = '#E2E8F0';
                                 }}
                             >
-                                <i className="fa-solid fa-right-to-bracket"></i>
                                 Masuk
                             </Link>
                             <Link
@@ -507,7 +505,6 @@ export default function Welcome({ categories = [] }) {
                                     e.currentTarget.style.transform = 'none';
                                 }}
                             >
-                                <i className="fa-solid fa-user-plus"></i>
                                 Daftar
                             </Link>
                         </div>
@@ -536,7 +533,6 @@ export default function Welcome({ categories = [] }) {
                                     gap: '8px',
                                 }}
                             >
-                                <i className="fa-solid fa-pen-to-square"></i>
                                 Form Pengaduan
                             </Link>
                             <Link
@@ -552,7 +548,6 @@ export default function Welcome({ categories = [] }) {
                                     gap: '8px',
                                 }}
                             >
-                                <i className="fa-solid fa-magnifying-glass"></i>
                                 Tracking Aduan
                             </Link>
                             <hr style={{ border: 0, borderTop: '1px solid #F1F5F9', margin: '4px 0' }} />
@@ -574,7 +569,6 @@ export default function Welcome({ categories = [] }) {
                                         borderRadius: '6px',
                                     }}
                                 >
-                                    <i className="fa-solid fa-right-to-bracket"></i>
                                     Masuk
                                 </Link>
                                 <Link
@@ -594,7 +588,6 @@ export default function Welcome({ categories = [] }) {
                                         borderRadius: '6px',
                                     }}
                                 >
-                                    <i className="fa-solid fa-user-plus"></i>
                                     Daftar
                                 </Link>
                             </div>
@@ -724,168 +717,7 @@ export default function Welcome({ categories = [] }) {
                 </section>
 
                 {/* Premium Footer */}
-                <footer style={{
-                    background: '#0F172A',
-                    color: '#94A3B8',
-                    padding: '64px 24px 32px',
-                    fontFamily: "'Telex', sans-serif",
-                    borderTop: '1px solid #1E293B',
-                }}>
-                    <div style={{
-                        maxWidth: '1100px',
-                        margin: '0 auto',
-                        display: 'grid',
-                        gridTemplateColumns: 'repeat(auto-fit, minmax(240px, 1fr))',
-                        gap: '40px',
-                        marginBottom: '48px',
-                    }}>
-                        {/* Column 1: Brand & About */}
-                        <div style={{ display: 'flex', flexDirection: 'column', gap: '16px' }}>
-                            <div style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
-                                <div style={{
-                                    width: '38px',
-                                    height: '38px',
-                                    borderRadius: '8px',
-                                    background: '#FFFFFF',
-                                    padding: '2px',
-                                    display: 'flex',
-                                    alignItems: 'center',
-                                    justifyContent: 'center',
-                                    boxShadow: '0 4px 6px -1px rgba(0, 0, 0, 0.1)',
-                                }}>
-                                    <img src="/images/logo_rsud.jpeg" alt="RSUD Logo" style={{ width: '100%', height: '100%', objectFit: 'contain' }} />
-                                </div>
-                                <span style={{ fontSize: '20px', fontWeight: 'bold', color: '#F1F5F9' }}>SIM Aduan</span>
-                            </div>
-                            <p style={{ fontSize: '13px', lineHeight: '1.6', color: '#94A3B8', margin: 0 }}>
-                                Sistem Informasi Manajemen Pengaduan IT RSUD Nganjuk terpadu untuk mendukung kelancaran operasional pelayanan kesehatan di seluruh unit kerja secara cepat, tanggap, dan profesional.
-                            </p>
-                            <div style={{ display: 'flex', gap: '12px', marginTop: '8px' }}>
-                                <a href="https://rsud.nganjukkab.go.id" target="_blank" rel="noopener noreferrer" style={{
-                                    width: '32px', height: '32px', borderRadius: '50%', background: '#1E293B',
-                                    display: 'flex', alignItems: 'center', justifyContent: 'center', color: '#F1F5F9',
-                                    textDecoration: 'none', transition: 'all 0.2s'
-                                }}
-                                    onMouseEnter={e => { e.currentTarget.style.background = '#2563EB'; e.currentTarget.style.transform = 'translateY(-2px)'; }}
-                                    onMouseLeave={e => { e.currentTarget.style.background = '#1E293B'; e.currentTarget.style.transform = 'none'; }}>
-                                    <i className="fa-solid fa-globe" style={{ fontSize: '14px', margin: 'auto' }}></i>
-                                </a>
-                                <a href="tel:0358321818" style={{
-                                    width: '32px', height: '32px', borderRadius: '50%', background: '#1E293B',
-                                    display: 'flex', alignItems: 'center', justifyContent: 'center', color: '#F1F5F9',
-                                    textDecoration: 'none', transition: 'all 0.2s'
-                                }}
-                                    onMouseEnter={e => { e.currentTarget.style.background = '#10B981'; e.currentTarget.style.transform = 'translateY(-2px)'; }}
-                                    onMouseLeave={e => { e.currentTarget.style.background = '#1E293B'; e.currentTarget.style.transform = 'none'; }}>
-                                    <i className="fa-solid fa-phone" style={{ fontSize: '14px', margin: 'auto' }}></i>
-                                </a>
-                                <a href="mailto:it.rsudnganjuk@gmail.com" style={{
-                                    width: '32px', height: '32px', borderRadius: '50%', background: '#1E293B',
-                                    display: 'flex', alignItems: 'center', justifyContent: 'center', color: '#F1F5F9',
-                                    textDecoration: 'none', transition: 'all 0.2s'
-                                }}
-                                    onMouseEnter={e => { e.currentTarget.style.background = '#EF4444'; e.currentTarget.style.transform = 'translateY(-2px)'; }}
-                                    onMouseLeave={e => { e.currentTarget.style.background = '#1E293B'; e.currentTarget.style.transform = 'none'; }}>
-                                    <i className="fa-solid fa-envelope" style={{ fontSize: '14px', margin: 'auto' }}></i>
-                                </a>
-                            </div>
-                        </div>
-
-                        {/* Column 2: Tautan Pintar */}
-                        <div style={{ display: 'flex', flexDirection: 'column', gap: '16px' }}>
-                            <h3 style={{ fontSize: '15px', fontWeight: '600', color: '#F1F5F9', margin: 0, textTransform: 'uppercase', letterSpacing: '0.05em' }}>Tautan Pintar</h3>
-                            <ul style={{ listStyle: 'none', padding: 0, margin: 0, display: 'flex', flexDirection: 'column', gap: '12px' }}>
-                                <li>
-                                    <Link href="/" style={{ fontSize: '13px', color: '#94A3B8', textDecoration: 'none', transition: 'color 0.15s' }}
-                                        onMouseEnter={e => e.currentTarget.style.color = '#3B82F6'}
-                                        onMouseLeave={e => e.currentTarget.style.color = '#94A3B8'}>
-                                        <i className="fa-solid fa-chevron-right" style={{ fontSize: '10px', marginRight: '8px' }}></i>Beranda Utama
-                                    </Link>
-                                </li>
-                                <li>
-                                    <Link href="/buat-aduan" style={{ fontSize: '13px', color: '#94A3B8', textDecoration: 'none', transition: 'color 0.15s' }}
-                                        onMouseEnter={e => e.currentTarget.style.color = '#3B82F6'}
-                                        onMouseLeave={e => e.currentTarget.style.color = '#94A3B8'}>
-                                        <i className="fa-solid fa-chevron-right" style={{ fontSize: '10px', marginRight: '8px' }}></i>Form Pengaduan
-                                    </Link>
-                                </li>
-                                <li>
-                                    <Link href="/lacak-aduan" style={{ fontSize: '13px', color: '#94A3B8', textDecoration: 'none', transition: 'color 0.15s' }}
-                                        onMouseEnter={e => e.currentTarget.style.color = '#3B82F6'}
-                                        onMouseLeave={e => e.currentTarget.style.color = '#94A3B8'}>
-                                        <i className="fa-solid fa-chevron-right" style={{ fontSize: '10px', marginRight: '8px' }}></i>Tracking Aduan
-                                    </Link>
-                                </li>
-                                <li>
-                                    <Link href="/login" style={{ fontSize: '13px', color: '#94A3B8', textDecoration: 'none', transition: 'color 0.15s' }}
-                                        onMouseEnter={e => e.currentTarget.style.color = '#3B82F6'}
-                                        onMouseLeave={e => e.currentTarget.style.color = '#94A3B8'}>
-                                        <i className="fa-solid fa-chevron-right" style={{ fontSize: '10px', marginRight: '8px' }}></i>Portal Admin & Teknisi
-                                    </Link>
-                                </li>
-                            </ul>
-                        </div>
-
-                        {/* Column 3: Kategori Kendala */}
-                        <div style={{ display: 'flex', flexDirection: 'column', gap: '16px' }}>
-                            <h3 style={{ fontSize: '15px', fontWeight: '600', color: '#F1F5F9', margin: 0, textTransform: 'uppercase', letterSpacing: '0.05em' }}>Kategori Kendala</h3>
-                            <ul style={{ listStyle: 'none', padding: 0, margin: 0, display: 'flex', flexDirection: 'column', gap: '12px' }}>
-                                <li style={{ fontSize: '13px', color: '#94A3B8' }}>
-                                    <i className="fa-solid fa-compact-disc" style={{ fontSize: '10px', marginRight: '8px', color: '#3B82F6' }}></i>Software & Aplikasi
-                                </li>
-                                <li style={{ fontSize: '13px', color: '#94A3B8' }}>
-                                    <i className="fa-solid fa-server" style={{ fontSize: '10px', marginRight: '8px', color: '#10B981' }}></i>Hardware & Jaringan
-                                </li>
-                                <li style={{ fontSize: '13px', color: '#94A3B8' }}>
-                                    <i className="fa-solid fa-database" style={{ fontSize: '10px', marginRight: '8px', color: '#F59E0B' }}></i>SIMRS & Data Integrasi
-                                </li>
-                                <li style={{ fontSize: '13px', color: '#94A3B8' }}>
-                                    <i className="fa-solid fa-microchip" style={{ fontSize: '10px', marginRight: '8px', color: '#EC4899' }}></i>Sistem Pendukung Lainnya
-                                </li>
-                            </ul>
-                        </div>
-
-                        {/* Column 4: Kontak & Alamat */}
-                        <div style={{ display: 'flex', flexDirection: 'column', gap: '16px' }}>
-                            <h3 style={{ fontSize: '15px', fontWeight: '600', color: '#F1F5F9', margin: 0, textTransform: 'uppercase', letterSpacing: '0.05em' }}>Kontak Utama</h3>
-                            <div style={{ display: 'flex', flexDirection: 'column', gap: '12px', fontSize: '13px', color: '#94A3B8' }}>
-                                <div style={{ display: 'flex', alignItems: 'flex-start', gap: '10px' }}>
-                                    <i className="fa-solid fa-location-dot" style={{ color: '#3B82F6', marginTop: '3px', flexShrink: 0 }}></i>
-                                    <span style={{ lineHeight: '1.4' }}>Jl. Dr. Soetomo No.62, Kauman, Kec. Nganjuk, Kabupaten Nganjuk, Jawa Timur 64411</span>
-                                </div>
-                                <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
-                                    <i className="fa-solid fa-phone" style={{ color: '#10B981', flexShrink: 0 }}></i>
-                                    <span>(0358) 321818</span>
-                                </div>
-                                <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
-                                    <i className="fa-solid fa-envelope" style={{ color: '#EF4444', flexShrink: 0 }}></i>
-                                    <span>it.rsudnganjuk@gmail.com</span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    {/* Footer Bottom Bar */}
-                    <div style={{
-                        maxWidth: '1100px',
-                        margin: '0 auto',
-                        borderTop: '1px solid #1E293B',
-                        paddingTop: '24px',
-                        display: 'flex',
-                        flexWrap: 'wrap',
-                        justifyContent: 'space-between',
-                        alignItems: 'center',
-                        gap: '16px',
-                        fontSize: '12px',
-                    }}>
-                        <span>
-                            © {new Date().getFullYear()} <strong>SIM Aduan RSUD Nganjuk</strong>. Hak Cipta Dilindungi Undang-Undang.
-                        </span>
-                        <span>
-                            Sub Bagian IT RSUD Nganjuk
-                        </span>
-                    </div>
-                </footer>
+                <Footer categories={categories} />
             </div>
         </>
     );

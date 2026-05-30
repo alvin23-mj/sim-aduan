@@ -199,42 +199,117 @@ export default function DamageReport({ aduan }) {
                     .signature-name {
                         font-weight: normal;
                     }
+                    .report-page-container {
+                        width: 100%;
+                        display: flex;
+                        flex-direction: column;
+                        gap: 20px;
+                    }
+                    .action-bar-container {
+                        display: flex;
+                        justify-content: space-between;
+                        align-items: center;
+                        width: 100%;
+                        flex-wrap: nowrap;
+                        gap: 10px;
+                    }
+                    .right-btns-wrapper {
+                        display: flex;
+                        gap: 10px;
+                        flex-wrap: nowrap;
+                        flex-shrink: 0;
+                    }
+                    @media (min-width: 1350px) {
+                        .report-page-container {
+                            position: relative;
+                        }
+                        .action-bar-container {
+                            position: absolute;
+                            left: 0;
+                            right: 0;
+                            top: 0;
+                            pointer-events: none;
+                        }
+                        .back-btn-wrapper, .right-btns-wrapper {
+                            pointer-events: auto;
+                        }
+                        .document-container {
+                            margin-top: 0 !important;
+                        }
+                    }
+                    @media (max-width: 1350px) {
+                        .action-bar-container {
+                            max-width: 850px;
+                            margin: 0 auto;
+                        }
+                    }
                 `}
             </style>
 
-            <div className="no-print" style={{ maxWidth: '850px', margin: '0 auto 20px', display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
-                <button 
-                    onClick={handleBack}
-                    style={{
-                        padding: '10px 24px',
-                        background: '#fff',
-                        color: '#64748B',
-                        border: '1px solid #E2E8F0',
-                        borderRadius: '4px',
-                        cursor: 'pointer',
-                        fontSize: '14px',
-                        display: 'flex',
-                        alignItems: 'center',
-                        gap: '8px'
-                    }}
-                >
-                    <i className="fa-solid fa-arrow-left"></i>
-                    Kembali
-                </button>
+            <div className="report-page-container">
+                <div className="no-print action-bar-container">
+                <div className="back-btn-wrapper">
+                    <button 
+                        onClick={handleBack}
+                        style={{
+                            height: '42px',
+                            boxSizing: 'border-box',
+                            padding: '0 24px',
+                            background: '#fff',
+                            color: '#64748B',
+                            border: '1px solid #E2E8F0',
+                            borderRadius: '4px',
+                            cursor: 'pointer',
+                            fontSize: '14px',
+                            display: 'inline-flex',
+                            alignItems: 'center',
+                            justifyContent: 'center',
+                            gap: '8px'
+                        }}
+                    >
+                        <i className="fa-solid fa-arrow-left"></i>
+                        Kembali
+                    </button>
+                </div>
 
-                <div style={{ display: 'flex', gap: '10px' }}>
+                <div className="right-btns-wrapper">
+                    <button 
+                        onClick={() => router.get(route('aduan.damageReportEdit', aduan.id))}
+                        style={{
+                            height: '42px',
+                            boxSizing: 'border-box',
+                            padding: '0 24px',
+                            background: '#2563EB',
+                            color: '#fff',
+                            border: 'none',
+                            borderRadius: '4px',
+                            cursor: 'pointer',
+                            fontSize: '14px',
+                            display: 'inline-flex',
+                            alignItems: 'center',
+                            justifyContent: 'center',
+                            gap: '8px'
+                        }}
+                    >
+                        <i className="fa-solid fa-pen-to-square"></i>
+                        Edit Berita Acara
+                    </button>
+
                     <button 
                         onClick={handlePrint}
                         style={{
-                            padding: '10px 24px',
+                            height: '42px',
+                            boxSizing: 'border-box',
+                            padding: '0 24px',
                             background: '#1E293B',
                             color: '#fff',
                             border: 'none',
                             borderRadius: '4px',
                             cursor: 'pointer',
                             fontSize: '14px',
-                            display: 'flex',
+                            display: 'inline-flex',
                             alignItems: 'center',
+                            justifyContent: 'center',
                             gap: '8px'
                         }}
                     >
@@ -550,6 +625,7 @@ export default function DamageReport({ aduan }) {
                     </div>
                 </div>
             )}
+            </div>
         </AdminLayout>
     );
 }

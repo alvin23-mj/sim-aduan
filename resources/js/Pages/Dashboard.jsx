@@ -255,7 +255,7 @@ export default function Dashboard({ stats, recent_aduans = [], weekly_chart = nu
                             <i className={s.icon} style={{ color: s.color, fontSize: '20px' }}></i>
                         </div>
                         <div>
-                            <div style={{ fontSize: '13px', color: '#64748B', marginBottom: '4px', fontWeight: '500' }}>
+                            <div style={{ fontSize: '14px', color: '#64748B', marginBottom: '4px', fontWeight: '500' }}>
                                 {s.label}
                             </div>
                             <div style={{ fontSize: '24px', fontWeight: 'bold', color: '#1E293B', lineHeight: 1 }}>
@@ -277,7 +277,6 @@ export default function Dashboard({ stats, recent_aduans = [], weekly_chart = nu
                     marginBottom: '28px'
                 }}>
                     <h3 style={{ fontSize: '16px', fontWeight: 'bold', color: '#1E293B', marginBottom: '24px', display: 'flex', alignItems: 'center', gap: '8px', fontFamily: "'Telex', sans-serif" }}>
-                        <i className="fa-solid fa-chart-bar" style={{ color: '#2563EB' }}></i>
                         Grafik Penanganan Laporan Mingguan (7 Hari Terakhir)
                     </h3>
                     <div ref={chartRef} style={{ width: '100%', height: '400px' }} />

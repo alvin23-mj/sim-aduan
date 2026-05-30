@@ -185,9 +185,22 @@ export default function Index({ aduan, filters = {}, categories = [] }) {
                                     if (diff < 0) return '-';
                                     const mins = Math.floor(diff / 60000);
                                     if (mins < 60) return `${mins} Menit`;
+                                    
                                     const hours = Math.floor(mins / 60);
-                                    if (hours < 24) return `${hours} Jam`;
-                                    return `${Math.floor(hours / 24)} Hari`;
+                                    const remainingMins = mins % 60;
+                                    
+                                    if (hours < 24) {
+                                        if (remainingMins === 0) return `${hours} Jam`;
+                                        return `${hours} Jam ${remainingMins} Menit`;
+                                    }
+                                    
+                                    const days = Math.floor(hours / 24);
+                                    const remainingHours = hours % 24;
+                                    
+                                    let result = `${days} Hari`;
+                                    if (remainingHours > 0) result += ` ${remainingHours} Jam`;
+                                    if (remainingMins > 0) result += ` ${remainingMins} Menit`;
+                                    return result;
                                 };
                                 const duration = getDuration(item.created_at, item.updated_at);
 
@@ -262,12 +275,24 @@ export default function Index({ aduan, filters = {}, categories = [] }) {
                                                         }
                                                     }}
                                                     title="Kembalikan ke Papan Proses"
-                                                    className="transition-colors flex items-center justify-center cursor-pointer"
                                                     style={{ 
                                                         width: '32px', height: '32px', padding: 0, borderRadius: '4px',
                                                         background: '#F1F5F9',
                                                         border: '1px solid #E2E8F0',
-                                                        color: '#475569'
+                                                        color: '#475569',
+                                                        cursor: 'pointer',
+                                                        display: 'flex', alignItems: 'center', justifyContent: 'center',
+                                                        transition: 'all 0.15s'
+                                                    }}
+                                                    onMouseEnter={e => {
+                                                        e.currentTarget.style.background = '#E2E8F0';
+                                                        e.currentTarget.style.borderColor = '#CBD5E1';
+                                                        e.currentTarget.style.color = '#0F172A';
+                                                    }}
+                                                    onMouseLeave={e => {
+                                                        e.currentTarget.style.background = '#F1F5F9';
+                                                        e.currentTarget.style.borderColor = '#E2E8F0';
+                                                        e.currentTarget.style.color = '#475569';
                                                     }}
                                                 >
                                                     <i className="fa-solid fa-rotate-left" style={{ fontSize: '14px' }}></i>
@@ -276,12 +301,24 @@ export default function Index({ aduan, filters = {}, categories = [] }) {
                                                 <button 
                                                     onClick={() => router.get(`/aduan/${item.id}/spk`)}
                                                     title="Cetak Surat Perintah Kerja / SPK (Biru)"
-                                                    className="transition-colors flex items-center justify-center cursor-pointer"
                                                     style={{ 
                                                         width: '32px', height: '32px', padding: 0, borderRadius: '4px',
                                                         background: '#EFF6FF',
                                                         border: '1px solid #DBEAFE',
-                                                        color: '#2563EB'
+                                                        color: '#2563EB',
+                                                        cursor: 'pointer',
+                                                        display: 'flex', alignItems: 'center', justifyContent: 'center',
+                                                        transition: 'all 0.15s'
+                                                    }}
+                                                    onMouseEnter={e => {
+                                                        e.currentTarget.style.background = '#2563EB';
+                                                        e.currentTarget.style.borderColor = '#2563EB';
+                                                        e.currentTarget.style.color = '#fff';
+                                                    }}
+                                                    onMouseLeave={e => {
+                                                        e.currentTarget.style.background = '#EFF6FF';
+                                                        e.currentTarget.style.borderColor = '#DBEAFE';
+                                                        e.currentTarget.style.color = '#2563EB';
                                                     }}
                                                 >
                                                     <i className="fa-solid fa-print" style={{ fontSize: '14px' }}></i>
@@ -290,12 +327,24 @@ export default function Index({ aduan, filters = {}, categories = [] }) {
                                                     <button 
                                                         onClick={() => router.get(`/aduan/${item.id}/berita-acara`)}
                                                         title="Berita Acara (Merah)"
-                                                        className="transition-colors flex items-center justify-center cursor-pointer"
                                                         style={{ 
                                                             width: '32px', height: '32px', padding: 0, borderRadius: '4px',
                                                             background: '#FEF2F2',
                                                             border: '1px solid #FEE2E2',
-                                                            color: '#EF4444'
+                                                            color: '#EF4444',
+                                                            cursor: 'pointer',
+                                                            display: 'flex', alignItems: 'center', justifyContent: 'center',
+                                                            transition: 'all 0.15s'
+                                                        }}
+                                                        onMouseEnter={e => {
+                                                            e.currentTarget.style.background = '#EF4444';
+                                                            e.currentTarget.style.borderColor = '#EF4444';
+                                                            e.currentTarget.style.color = '#fff';
+                                                        }}
+                                                        onMouseLeave={e => {
+                                                            e.currentTarget.style.background = '#FEF2F2';
+                                                            e.currentTarget.style.borderColor = '#FEE2E2';
+                                                            e.currentTarget.style.color = '#EF4444';
                                                         }}
                                                     >
                                                         <i className="fa-solid fa-file-contract" style={{ fontSize: '14px' }}></i>
@@ -307,17 +356,28 @@ export default function Index({ aduan, filters = {}, categories = [] }) {
                                                         target="_blank"
                                                         rel="noopener noreferrer"
                                                         title="WhatsApp"
-                                                        className="transition-colors flex items-center justify-center"
                                                         style={{ 
                                                             width: '32px', height: '32px', 
                                                             textDecoration: 'none', borderRadius: '4px',
                                                             background: '#F0FDF4',
                                                             border: '1px solid #DCFCE7',
-                                                            color: '#10B981'
-                                                    }}
-                                                >
-                                                    <i className="fa-brands fa-whatsapp" style={{ fontSize: '16px' }}></i>
-                                                </a>
+                                                            color: '#10B981',
+                                                            display: 'flex', alignItems: 'center', justifyContent: 'center',
+                                                            transition: 'all 0.15s'
+                                                        }}
+                                                        onMouseEnter={e => {
+                                                            e.currentTarget.style.background = '#10B981';
+                                                            e.currentTarget.style.borderColor = '#10B981';
+                                                            e.currentTarget.style.color = '#fff';
+                                                        }}
+                                                        onMouseLeave={e => {
+                                                            e.currentTarget.style.background = '#F0FDF4';
+                                                            e.currentTarget.style.borderColor = '#DCFCE7';
+                                                            e.currentTarget.style.color = '#10B981';
+                                                        }}
+                                                    >
+                                                        <i className="fa-brands fa-whatsapp" style={{ fontSize: '16px' }}></i>
+                                                    </a>
                                                 )}
                                             </div>
                                         </td>

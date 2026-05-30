@@ -402,9 +402,11 @@ class AduanController extends Controller
             'recommendation'    => 'nullable|string',
             'kepala_ruang_name' => 'nullable|string|max:255',
             'kepala_ruang_nip'  => 'nullable|string|max:255',
+            'kepala_ruang_signature' => 'nullable|string',
             'technician_nip'    => 'nullable|string|max:255',
             'kaisik_name'       => 'nullable|string|max:255',
             'kaisik_nip'        => 'nullable|string|max:255',
+            'priority_reason'   => 'nullable|string',
         ]);
 
         $oldStatus = $aduan->status;
@@ -417,6 +419,17 @@ class AduanController extends Controller
 
         if (isset($validated['status']) && $validated['status'] === 'sedang_pengerjaan' && empty($aduan->started_working_at)) {
             $validated['started_working_at'] = now();
+        }
+
+        if (isset($validated['priority'])) {
+            if ($validated['priority'] === 'ringan' && isset($validated['priority_reason']) && !empty($validated['priority_reason'])) {
+                if ($aduan->started_working_at) {
+                    $validated['frozen_minutes'] = (int) $aduan->started_working_at->diffInMinutes(now());
+                }
+            } elseif ($validated['priority'] !== 'ringan') {
+                $validated['priority_reason'] = null;
+                $validated['frozen_minutes'] = null;
+            }
         }
 
         if (isset($validated['is_manual_priority'])) {
@@ -567,15 +580,11 @@ class AduanController extends Controller
             if (!$aduan->started_working_at) continue;
 
             $minutes = $aduan->started_working_at->diffInMinutes(now());
-            $hours = $aduan->started_working_at->diffInHours(now());
             $changed = false;
 
             if (!$aduan->is_manual_priority) {
                 if ($aduan->priority === 'ringan' && $minutes >= 30) {
                     $aduan->priority = 'sedang';
-                    $changed = true;
-                } elseif ($aduan->priority === 'sedang' && $hours >= 48) {
-                    $aduan->priority = 'berat';
                     $changed = true;
                 }
             }
@@ -605,6 +614,15 @@ class AduanController extends Controller
     {
         $technicians = \App\Models\Technician::where('is_active', true)->get(['id', 'name', 'signature']);
         return Inertia::render('Aduans/SpkReport', [
+            'aduan' => $aduan,
+            'technicians' => $technicians,
+        ]);
+    }
+
+    public function spkReportEdit(Aduan $aduan)
+    {
+        $technicians = \App\Models\Technician::where('is_active', true)->get(['id', 'name']);
+        return Inertia::render('Aduans/SpkEdit', [
             'aduan' => $aduan,
             'technicians' => $technicians,
         ]);

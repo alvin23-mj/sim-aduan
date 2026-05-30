@@ -48,6 +48,8 @@ class Aduan extends Model
         'is_manual_priority',
         'is_ba_sent',
         'kepala_ruang_signature',
+        'priority_reason',
+        'frozen_minutes',
     ];
 
     protected $casts = [
@@ -55,5 +57,6 @@ class Aduan extends Model
         'started_working_at' => 'datetime',
         'is_manual_priority' => 'boolean',
         'is_ba_sent' => 'boolean',
+        'frozen_minutes' => 'integer',
     ];
 }

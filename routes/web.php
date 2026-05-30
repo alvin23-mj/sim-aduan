@@ -16,6 +16,9 @@ Route::get('/lacak-aduan', [AduanController::class, 'showTracking'])->name('adua
 Route::post('/aduan', [AduanController::class, 'store'])->name('aduan.store');
 Route::get('/aduan/success', [AduanController::class, 'success'])->name('aduan.success');
 Route::get('/api/aduan/track', [AduanController::class, 'track'])->name('aduan.track');
+Route::get('/api/categories/active', function() {
+    return response()->json(\App\Models\Category::where('is_active', true)->orderBy('name')->get());
+})->name('categories.active');
 Route::post('/api/aduan/{aduan}/perbaiki-sendiri', [AduanController::class, 'publicSelfFix'])->name('aduan.public-self-fix');
 
 // Admin routes (protected)
@@ -40,6 +43,7 @@ Route::middleware(['auth', 'verified'])->group(function () {
     Route::post('/aduan/{aduan}/send-ba', [AduanController::class, 'sendBA'])->name('aduan.sendBA');
     Route::post('/aduan/{aduan}/sign-kepala-ruang', [AduanController::class, 'signKepalaRuang'])->name('aduan.signKepalaRuang');
     Route::get('/aduan/{aduan}/spk', [AduanController::class, 'spkReport'])->name('aduan.spkReport');
+    Route::get('/aduan/{aduan}/spk/edit', [AduanController::class, 'spkReportEdit'])->name('aduan.spkReportEdit');
 
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');

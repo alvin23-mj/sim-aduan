@@ -15,14 +15,39 @@ export default function AlarmSettings() {
     });
 
     const [duration, setDuration] = useState(() => {
-        return parseInt(localStorage.getItem('alarm_duration') || '10', 10);
+        const val = localStorage.getItem('alarm_duration');
+        return val !== null && val !== '' ? parseInt(val, 10) : 10;
     });
 
     const [delayMinutes, setDelayMinutes] = useState(() => {
-        return parseInt(localStorage.getItem('alarm_delay') || '0', 10);
+        const val = localStorage.getItem('alarm_delay');
+        return val !== null && val !== '' ? parseInt(val, 10) : 0;
     });
 
     const [isPlayingPreview, setIsPlayingPreview] = useState(false);
+
+    // Helper functions for state change
+    const handleDurationChange = (val) => {
+        if (val === '') {
+            setDuration('');
+        } else {
+            const num = parseInt(val, 10);
+            if (!isNaN(num)) {
+                setDuration(num >= 1 ? num : 1);
+            }
+        }
+    };
+
+    const handleDelayChange = (val) => {
+        if (val === '') {
+            setDelayMinutes('');
+        } else {
+            const num = parseInt(val, 10);
+            if (!isNaN(num)) {
+                setDelayMinutes(num >= 0 ? num : 0);
+            }
+        }
+    };
 
     // 2. Persist state changes to localStorage
     useEffect(() => {
@@ -34,11 +59,11 @@ export default function AlarmSettings() {
     }, [ringtone]);
 
     useEffect(() => {
-        localStorage.setItem('alarm_duration', duration);
+        localStorage.setItem('alarm_duration', duration === '' ? '10' : duration.toString());
     }, [duration]);
 
     useEffect(() => {
-        localStorage.setItem('alarm_delay', delayMinutes);
+        localStorage.setItem('alarm_delay', delayMinutes === '' ? '0' : delayMinutes.toString());
     }, [delayMinutes]);
 
     // 3. Cleanup sound when component unmounts
@@ -236,18 +261,26 @@ export default function AlarmSettings() {
 
                     {/* SECTION 3: SOUND DURATION */}
                     <div style={groupStyle}>
-                        <label style={labelStyle}>Durasi Bunyi Alarm (Detik)</label>
-                        <select 
-                            value={duration} 
-                            onChange={(e) => setDuration(parseInt(e.target.value, 10))} 
-                            style={selectStyle}
-                        >
-                            <option value="5">5 Detik</option>
-                            <option value="10">10 Detik (Direkomendasikan)</option>
-                            <option value="20">20 Detik</option>
-                            <option value="30">30 Detik</option>
-                            <option value="60">1 Menit</option>
-                        </select>
+                        <label style={labelStyle}>Durasi Bunyi Alarm</label>
+                        <div style={{ position: 'relative', display: 'flex', alignItems: 'center' }}>
+                            <input 
+                                type="number"
+                                min="1"
+                                placeholder="Misal: 10"
+                                value={duration} 
+                                onChange={(e) => handleDurationChange(e.target.value)} 
+                                style={{ ...selectStyle, paddingRight: '70px' }}
+                            />
+                            <span style={{
+                                position: 'absolute',
+                                right: '14px',
+                                fontSize: '14px',
+                                color: '#64748B',
+                                pointerEvents: 'none'
+                            }}>
+                                Detik
+                            </span>
+                        </div>
                         <p style={{ margin: '8px 0 0', fontSize: '12px', color: '#94A3B8' }}>
                             * Menentukan seberapa lama nada dering berbunyi sebelum berhenti secara otomatis bila tidak segera direspons.
                         </p>
@@ -255,18 +288,26 @@ export default function AlarmSettings() {
 
                     {/* SECTION 4: TRIGGER DELAY THRESHOLD */}
                     <div style={{ marginBottom: 0 }}>
-                        <label style={labelStyle}>Batas Waktu Penundaan Alarm setelah Aduan Masuk (Menit)</label>
-                        <select 
-                            value={delayMinutes} 
-                            onChange={(e) => setDelayMinutes(parseInt(e.target.value, 10))} 
-                            style={selectStyle}
-                        >
-                            <option value="0">Seketika / Langsung Bunyi (0 Menit)</option>
-                            <option value="1">1 Menit Setelah Aduan Masuk</option>
-                            <option value="2">2 Menit Setelah Aduan Masuk</option>
-                            <option value="5">5 Menit Setelah Aduan Masuk</option>
-                            <option value="10">10 Menit Setelah Aduan Masuk</option>
-                        </select>
+                        <label style={labelStyle}>Batas Waktu Penundaan Alarm setelah Aduan Masuk</label>
+                        <div style={{ position: 'relative', display: 'flex', alignItems: 'center' }}>
+                            <input 
+                                type="number"
+                                min="0"
+                                placeholder="Misal: 2"
+                                value={delayMinutes} 
+                                onChange={(e) => handleDelayChange(e.target.value)} 
+                                style={{ ...selectStyle, paddingRight: '70px' }}
+                            />
+                            <span style={{
+                                position: 'absolute',
+                                right: '14px',
+                                fontSize: '14px',
+                                color: '#64748B',
+                                pointerEvents: 'none'
+                            }}>
+                                Menit
+                            </span>
+                        </div>
                         <p style={{ margin: '8px 0 0', fontSize: '12px', color: '#94A3B8' }}>
                             * Jika diatur selain 0, alarm hanya akan berbunyi apabila ada aduan masuk yang didiamkan (menunggu validasi) selama lebih dari durasi waktu di atas.
                         </p>

@@ -210,30 +210,6 @@ export default function PelaporDamageReport({ aduan }) {
                 </Link>
 
                 <div style={{ display: 'flex', gap: '10px' }}>
-                    <button 
-                        type="button"
-                        onClick={() => setShowSignModal(true)}
-                        style={{
-                            padding: '10px 24px',
-                            background: '#059669',
-                            color: '#fff',
-                            border: 'none',
-                            borderRadius: '4px',
-                            cursor: 'pointer',
-                            fontSize: '14px',
-                            fontWeight: 'bold',
-                            display: 'flex',
-                            alignItems: 'center',
-                            gap: '8px',
-                            boxShadow: '0 2px 4px rgba(5, 150, 105, 0.2)',
-                            transition: 'all 0.15s'
-                        }}
-                        onMouseEnter={e => e.currentTarget.style.background = '#047857'}
-                        onMouseLeave={e => e.currentTarget.style.background = '#059669'}
-                    >
-                        <i className="fa-solid fa-pen-nib"></i>
-                        {aduan.kepala_ruang_signature ? 'Edit TTD Kepala Ruang' : 'Tanda Tangan Kepala Ruang'}
-                    </button>
 
                     <button 
                         onClick={handlePrint}
